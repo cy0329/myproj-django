@@ -13,4 +13,3 @@ class Post(TimeStampedModel):
     title = models.CharField(max_length=50)
     content = models.TextField()
 
-    
