@@ -10,6 +10,6 @@ class TimeStampedModel(models.Model):
 
 
 class Post(TimeStampedModel):
-    title = models.CharField(max_length=50, db_index=True)
+    title = models.CharField(max_length=100, db_index=True)
     content = models.TextField()
 
