@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'blog',
     'shop',
     'news',
+    'maple',
     'rest_framework',
     'corsheaders',
 ]
