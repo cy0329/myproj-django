@@ -36,5 +36,5 @@ class Character(TimeStampedModel):
     bind = models.BooleanField(default=False, verbose_name="바인드 보유 여부")
     rush = models.BooleanField(default=False, verbose_name="돌진기 보유 여부")
     teleport = models.BooleanField(default=False, verbose_name="텔레포트 보유 여부")
-    hunt_rating = models.CharField(max_length=1, choices=RATE, verbose_name="사냥 능력")
-    raid_rating = models.CharField(max_length=1, choices=RATE, verbose_name="보스 성능")
+    hunt_rating = models.CharField(max_length=3, choices=RATE, verbose_name="사냥 능력")
+    raid_rating = models.CharField(max_length=3, choices=RATE, verbose_name="보스 성능")

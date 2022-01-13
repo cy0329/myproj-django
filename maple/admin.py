@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from maple.models import Character
+
+
+@admin.register(Character)
+class CharaterAdmin(admin.ModelAdmin):
+    list_display = ["id", "job"]
+    list_display_links = ["job"]
+
