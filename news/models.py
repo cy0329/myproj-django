@@ -12,4 +12,4 @@ class TimeStampedModel(models.Model):
 class Article(TimeStampedModel):
     title = models.CharField(max_length=100, db_index=True)
     content = models.TextField()
-
+    photo = models.ImageField(blank=True)
