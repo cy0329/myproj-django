@@ -6,7 +6,7 @@ from maple.views import MapleViewSet
 app_name = "maple"
 
 router = DefaultRouter()
-router.register("maple", MapleViewSet)
+router.register("character", MapleViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
