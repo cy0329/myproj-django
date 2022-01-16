@@ -10,6 +10,20 @@ class TimeStampedModel(models.Model):
         abstract = True
 
 
+class Category(models.Model):
+    CATEGORY = (
+        ("전사", "전사"),
+        ("마법사", "마법사"),
+        ("궁수", "궁수"),
+        ("도적", "도적"),
+        ("해적", "해적"),
+    )
+    name = models.CharField(choices=CATEGORY, db_index=True, verbose_name="직업군", max_length=10, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Character(TimeStampedModel):
     RATE = (
         ("1", "1점"),
@@ -22,6 +36,7 @@ class Character(TimeStampedModel):
         ("4.5", "4.5점"),
         ("5", "5점"),
     )
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="직업군", default=1)
     job = models.CharField(max_length=50,
                            db_index=True,
                            validators=[
@@ -38,3 +53,5 @@ class Character(TimeStampedModel):
     teleport = models.BooleanField(default=False, verbose_name="텔레포트 보유 여부")
     hunt_rating = models.CharField(max_length=3, choices=RATE, verbose_name="사냥 능력")
     raid_rating = models.CharField(max_length=3, choices=RATE, verbose_name="보스 성능")
+
+

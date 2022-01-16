@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from maple.models import Character
-from maple.serializers import CharacterSerializer
+from maple.models import Character, Category
+from maple.serializers import CharacterSerializer, CategorySerializer
 
 
 class MapleViewSet(viewsets.ModelViewSet):
@@ -16,4 +16,9 @@ class MapleViewSet(viewsets.ModelViewSet):
             qs = qs.filter(job__icontains=query)
 
         return qs
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
