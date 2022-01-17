@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'news',
     'maple',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 
@@ -126,4 +127,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://github.com/adamchainz/django-cors-headers
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+
+# djangorestframework
+# DRF의 디폴트 설정을 재정의
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentications.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
