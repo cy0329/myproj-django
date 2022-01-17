@@ -2,6 +2,7 @@ import json
 
 from django.http import HttpResponse
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet  # <-- 아랫줄 하나하나가 다 포함되있는 부모
 from rest_framework.generics import (
     ListAPIView,
@@ -19,6 +20,8 @@ from news.serializers import (
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    # permission_classes = [AllowAny]  # DRF 디폴트 설정
+    permission_classes = [IsAuthenticated]
 
     # def get_serializer_class(self):
     #     # return ArticleSerializer
