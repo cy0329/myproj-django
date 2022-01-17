@@ -9,6 +9,5 @@ router = DefaultRouter()
 router.register("character", MapleViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path("api/", include(router.urls)),
 ]
-

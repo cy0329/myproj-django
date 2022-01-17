@@ -7,4 +7,3 @@ from blog.models import Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ["id", "title"]
     list_display_links = ["title"]
-

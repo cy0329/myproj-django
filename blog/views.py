@@ -18,7 +18,7 @@ def post_list(request):
             "id": post.id,
             "title": post.title,
             "content": post.content,
-            "photo": request.build_absolute_uri(post.photo.url) if post.photo else None
+            "photo": request.build_absolute_uri(post.photo.url) if post.photo else None,
         }
         for post in qs
     ]

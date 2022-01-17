@@ -7,4 +7,3 @@ from news.models import Article
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ["id", "title"]
     list_display_links = ["title"]
-

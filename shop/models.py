@@ -14,4 +14,3 @@ class Review(TimestampedModel):
             MaxValueValidator(5),
         ]
     )
-

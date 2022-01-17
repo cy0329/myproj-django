@@ -9,25 +9,47 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TimestampedModel',
+            name="TimestampedModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Review',
+            name="Review",
             fields=[
-                ('timestampedmodel_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='shop.timestampedmodel')),
-                ('content', models.TextField()),
-                ('score', models.PositiveSmallIntegerField(validators=[django.core.validators.MaxValueValidator(5)])),
+                (
+                    "timestampedmodel_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="shop.timestampedmodel",
+                    ),
+                ),
+                ("content", models.TextField()),
+                (
+                    "score",
+                    models.PositiveSmallIntegerField(
+                        validators=[django.core.validators.MaxValueValidator(5)]
+                    ),
+                ),
             ],
-            bases=('shop.timestampedmodel',),
+            bases=("shop.timestampedmodel",),
         ),
     ]

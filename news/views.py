@@ -3,9 +3,17 @@ import json
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.viewsets import ModelViewSet  # <-- 아랫줄 하나하나가 다 포함되있는 부모
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView, RetrieveAPIView
+from rest_framework.generics import (
+    ListAPIView,
+    CreateAPIView,
+    DestroyAPIView,
+    UpdateAPIView,
+    RetrieveAPIView,
+)
 from news.models import Article
-from news.serializers import ArticleSerializer # ArticleAnonymousSerializer, ArticleGoldMembershipSerializer,
+from news.serializers import (
+    ArticleSerializer,
+)  # ArticleAnonymousSerializer, ArticleGoldMembershipSerializer,
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
@@ -29,6 +37,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     #     if year:
     #         qs = qs.filter(created_at__year=year)
     #     return qs
+
 
 # article_list = ListAPIView.as_view(
 #     queryset=Article.objects.all(),

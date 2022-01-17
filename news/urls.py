@@ -13,4 +13,3 @@ urlpatterns = [
     path("api/", include(router.urls)),
     # path("articles.json", views.article_list),
 ]
-

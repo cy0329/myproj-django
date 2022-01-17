@@ -13,4 +13,3 @@ urlpatterns = [
     path("reviews/new/", review_new, name="review_new"),
     path("api/", include(router.urls)),
 ]
-
