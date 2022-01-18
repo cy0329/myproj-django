@@ -34,6 +34,13 @@ class ArticleViewSet(viewsets.ModelViewSet):
             return [AllowAny()]
         return [IsAuthenticated()]
 
+    # 유효성 검사가 끝나고 나서
+    # 실제  serializer.save()를 할 때 수행되는 함수
+    def perform_create(self, serializer):
+        # serializer.save는 commit=False를 지원하지 않음
+        # 대신 키워드 인자를 통한 속성 지정을 지원함
+        serializer.save(author=self.request.user)
+
 
 
 

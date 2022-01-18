@@ -6,7 +6,7 @@ from news.models import Article
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = "__all__"
+        fields = ["id", "title", "content", "photo"]
 
     # def validate_title(self, title):
     #     if len(title) < 3:
