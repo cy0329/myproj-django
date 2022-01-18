@@ -17,11 +17,25 @@ from news.serializers import (
 )  # ArticleAnonymousSerializer, ArticleGoldMembershipSerializer,
 
 
+# list, detail, create, update, delete 를 1개 ViewSet에서 지원
+# 나눠서 리스트, 디테일은 아무때나 조회 가능, 나머지는 인증 됐을 때만
+# request type에 따라
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     # permission_classes = [AllowAny]  # DRF 디폴트 설정
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
+    # 위 주석 한줄과 아래는 같은 결과
+
+    def get_permissions(self):
+        # if self.request.method in ("POST", "PUT", "PATCH", "DELETE"):
+        if self.request.method == "GET":
+            # 각각을 언제 쓰느냐를 잘 봐
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+
+
 
     # def get_serializer_class(self):
     #     # return ArticleSerializer
