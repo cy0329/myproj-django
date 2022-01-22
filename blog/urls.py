@@ -11,5 +11,5 @@ router.register("posts", PostViewSet)
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("posts.json", views.post_list),
+    # path("posts.json", views.post_list),
 ]
